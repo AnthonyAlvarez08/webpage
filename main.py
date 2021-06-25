@@ -3,10 +3,14 @@ import os
 
 app = Flask(__name__)
 
+# define the port and host just incase I change it in the future, for now localhost 5000
+HOST = '127.0.0.1'
+PORT = 5000
+
 pics = list()
 
 for pic in os.listdir('./static/pics'):
-    pics.append(pic) # f'C:\\Users\\antho\\source\\repos\\web dev stuff\\webpage\\pics\\{pic}')
+    pics.append(pic) 
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -18,4 +22,4 @@ def hehe():
     return '<h1>hehe</h1>'
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host=HOST, port=PORT, debug=True)
