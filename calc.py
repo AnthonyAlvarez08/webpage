@@ -19,7 +19,7 @@ class Polynomial:
         coefficients: list size degree + 1, list coefficients of polynomial
         if one wanted x^3 + 7x on would do [1, 0, 7, 0]
 
-        returns a function evaluation of a polynomial, and its derivative
+        returns a function evaluation of a polynomial, and its anti-derivative and derivative
         """
         coeffs = coefficients
         d = degree
@@ -47,7 +47,7 @@ class Polynomial:
                     total += 0
             return total
 
-        def derivative(x :float) -> float:
+        def derivative(x : float) -> float:
             total = 0
             exp = degree - 1
             for i in coeffs3:
