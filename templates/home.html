@@ -1,41 +1,17 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        {% if title %}
-        <title>{{ title }}</title>
-        {% else %}
-        <title>webpage</title>
-        {% endif %}
-    
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "layout.html" %}
+{% block content %}
+<h1>Hello World</h1>
+<h2>wa wah wa</h2>
+<ol>
+    <!--this is a jinja2 for loop, it will be interpreted into a valid html file at runtime-->
+    {% for i in things %}
+        <li>{{ i }}</li>
+    {% endfor %}
+</ol>
 
-        <script src="{{ url_for('static', filename='file.js') }}"></script>
-        
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css')}}">
-    </head>
-
-    <body>
-        <h1>Hello World</h1>
-        <h2>wa wah wa</h2>
-        <ol>
-            <!--this is a jinja2 for loop, it will be interpreted into a valid html file at runtime-->
-            {% for i in things %}
-                <li>{{ i }}</li>
-            {% endfor %}
-        </ol>
-
-        <!--use a jinja for loop to render a bunch of pictures-->
-        {% for i in pics %}
-            <p>{{ i }}</p>
-            <img src="static/pics/{{ i }}" alt="{{ i }}">
-        {% endfor %}
-        
-    </body>
-    
-</html>
+<!--use a jinja for loop to render a bunch of pictures-->
+{% for i in pics %}
+    <p>{{ i }}</p>
+    <img src="static/pics/{{ i }}" alt="{{ i }}">
+{% endfor %}
+{% endblock %}
