@@ -14,17 +14,20 @@ class Polynomial:
 
     def __str__(self):
         res = ''
-        for i in range(self.degree, 0, -1):
+        for i in range(self.degree, -1, -1):
             sign = ''
-            if self.coeffs[len(self.coeffs) - i] < 0:
-                sign = '-'
+            if self.coeffs[len(self.coeffs) - i - 1] < 0:
+                sign = ''
             elif i != self.degree:
                 sign = '+'
 
-            if self.coeffs[len(self.coeffs) - i] == 0:
+            if self.coeffs[len(self.coeffs) - i - 1] == 0:
                 continue
-
-            res += f'{sign}{self.coeffs[len(self.coeffs) - i]}x^{i}'
+            
+            if self.coeffs[len(self.coeffs) - i - 1] == 1:
+                res += f'x^{i}'
+            else:
+                res += f'{sign}{self.coeffs[len(self.coeffs) - i - 1]}x^{i}'
         res += '\n'
         return res
 
@@ -67,8 +70,10 @@ class Polynomial:
             total = 0
             exp = degree - 1
             for i in coeffs3:
-                total += x ** exp * i * (exp + 1)
+                if i != 0 and x != 0:
+                    total += x ** exp * i * (exp + 1)
                 exp -= 1
+                
             return total
                 
         return func, integral, derivative

@@ -35,10 +35,10 @@ def calc():
     if form.is_submitted():
         poly = Polynomial(degree=form.degree.data, coefficients=list(map(int, form.coeffs.data.split())))
         results = [
-            f'f(x) = {str(poly)}'
-            f'evaluated at point: {str({i : poly.eval(i) for i in range(11)})}',
-            f'derivative/slope at point: {str({i : poly.derivative(i) for i in range(11)})}',
-            f'area under 0 to 10: {str(poly.area_under(0, 10))}'
+            f'f(x) = {str(poly)}',
+            f'evaluated at point: { {i : poly.eval(i) for i in range(11)} }',
+            f'derivative/slope at point: { {i : poly.derivative(i) for i in range(11)} }',
+            f'area under 0 to 10: {poly.area_under(0, 10)}'
         ]
     return render_template('calc.html', title='calc', form=form, results=results)
 
