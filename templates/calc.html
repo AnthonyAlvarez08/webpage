@@ -1,25 +1,32 @@
 {% extends "layout.html" %}
 {% block content %}
-{{ form.degree.label() }}
-{{ form.degree() }}
-{% if form.degree.errors %}
-    {% for error in form.degree.errors %}
-        <p>{{ error }}</p>
-    {% endfor %}
-{% endif %}
-{{ form.coeffs.label() }}
-{{ form.coeffs() }}
-{% if form.coeffs.errors %}
-    {% for error in form.coeffs.errors %}
-        <p>{{ error }}</p>
-    {% endfor %}
-{% endif %}
-{{ form.submit.label() }}
-{{ form.submit() }}
-{% if form.submit.errors %}
-    {% for error in form.submit.errors %}
-        <p>{{ error }}</p>
-    {% endfor %}
-{% endif %}
+<form method="POST" action="">
+    {{ form.degree.label() }}
+    {{ form.degree() }}
+    {% if form.degree.errors %}
+        {% for error in form.degree.errors %}
+            <p>{{ error }}</p>
+        {% endfor %}
+    {% endif %}
+    {{ form.coeffs.label() }}
+    {{ form.coeffs() }}
+    {% if form.coeffs.errors %}
+        {% for error in form.coeffs.errors %}
+            <p>{{ error }}</p>
+        {% endfor %}
+    {% endif %}
+    {{ form.submit.label() }}
+    {{ form.submit() }}
+    {% if form.submit.errors %}
+        {% for error in form.submit.errors %}
+            <p>{{ error }}</p>
+        {% endfor %}
+    {% endif %}
+</form>
 
+{% if results %}
+    {% for i in results %}
+        <p>{{ i }}</p>
+    {% endfor %}
+{% endif %}
 {% endblock %}

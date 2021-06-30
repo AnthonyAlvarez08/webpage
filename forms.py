@@ -4,6 +4,6 @@ from wtforms.validators import DataRequired, Length
 
 class CalculusForm(FlaskForm):
 
-    degree = IntegerField('degree', validators=[DataRequired(), Length(min=1)])
+    degree = IntegerField('degree', validators=[DataRequired()])
     coeffs = StringField('coeffs', validators=[DataRequired(), Length(min=1)])
     submit = SubmitField('Submit')
