@@ -12,17 +12,17 @@ class Polynomial:
         # I do not know what I would use it for but aight
         return self.eval(xo) + (xo - x) * self.derivative(xo)
 
-    def __str__(self):
+    def __str__(self) -> str:
         res = ''
         for i in range(self.degree, -1, -1):
+            if self.coeffs[len(self.coeffs) - i - 1] == 0:
+                continue
+            
             sign = ''
             if self.coeffs[len(self.coeffs) - i - 1] < 0:
                 sign = ''
             elif i != self.degree:
                 sign = '+'
-
-            if self.coeffs[len(self.coeffs) - i - 1] == 0:
-                continue
             
             if self.coeffs[len(self.coeffs) - i - 1] == 1:
                 res += f'x^{i}'
