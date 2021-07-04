@@ -13,21 +13,30 @@ class Polynomial:
         return self.eval(xo) + (xo - x) * self.derivative(xo)
 
     def __str__(self) -> str:
+        '''
+        display a polynomial in ax^n + bx^(n-1) + ... + A1x + A0
+        form
+        '''
         res = ''
         for i in range(self.degree, -1, -1):
-            if self.coeffs[len(self.coeffs) - i - 1] == 0:
-                continue
-            
-            sign = ''
-            if self.coeffs[len(self.coeffs) - i - 1] < 0:
+            if self.coeffs[len(self.coeffs) - i - 1] != 0:
                 sign = ''
-            elif i != self.degree:
-                sign = '+'
+                if self.coeffs[len(self.coeffs) - i - 1] > 0:
+                    sign = '+'
+                else:
+                    sign = '-'
+
+                if abs(self.coeffs[len(self.coeffs) - i - 1]) == 1 and i != 0:
+                    res += f'{sign}'
+                else:
+                    res += f'{sign}{abs(self.coeffs[len(self.coeffs) - i - 1])}'
+
+                if i == 1:
+                    res += 'x'
+                elif i != 0:
+                    res += f'x^{i}'
+
             
-            if self.coeffs[len(self.coeffs) - i - 1] == 1:
-                res += f'x^{i}'
-            else:
-                res += f'{sign}{self.coeffs[len(self.coeffs) - i - 1]}x^{i}'
         res += '\n'
         return res
 
