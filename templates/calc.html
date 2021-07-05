@@ -3,6 +3,7 @@
 <p>Things with polynomials :)</p>
 <p>For example: ax^2 + bx + c would be degree = 2, coefficiens = a b c</p>
 <form method="POST" action="">
+    {{ form.hidden_tag() }}
     {{ form.degree.label() }}
     {{ form.degree() }}
     {% if form.degree.errors %}
@@ -17,7 +18,6 @@
             <p>{{ error }}</p>
         {% endfor %}
     {% endif %}
-    {{ form.submit.label() }}
     {{ form.submit() }}
     {% if form.submit.errors %}
         {% for error in form.submit.errors %}

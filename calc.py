@@ -6,6 +6,9 @@ class Polynomial:
         self.eval, self.integral, self.derivative = Polynomial._polymaker(self.degree, self.coeffs)
 
     def area_under(self, a : float, b : float) -> float:
+        '''
+        fundamental theorem of calculus or a definite integral
+        '''
         return self.integral(b) - self.integral(a)
 
     def local_approximation(self, xo : int, x : float) -> float:
@@ -42,15 +45,17 @@ class Polynomial:
 
     @classmethod
     def _polymaker(cls, degree : int, coefficients : list):
-        """
+        '''
         degree: integer, degree of polynomial
         coefficients: list size degree + 1, list coefficients of polynomial
         if one wanted x^3 + 7x on would do [1, 0, 7, 0]
 
         returns a function evaluation of a polynomial, and its anti-derivative and derivative
-        """
+        '''
         coeffs = coefficients
         d = degree
+
+        # the polynomial itself
         def func(x : float) -> float:
             total = 0
             exp = degree;
@@ -64,6 +69,7 @@ class Polynomial:
         coeffs2.append(0)
         coeffs3.pop()
 
+        # the integral/anti derivative
         def integral(x : float) -> float:
             total = 0
             exp = degree + 1;
@@ -75,6 +81,7 @@ class Polynomial:
                     total += 0
             return total
 
+        # the derivative
         def derivative(x : float) -> float:
             total = 0
             exp = degree - 1

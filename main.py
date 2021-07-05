@@ -10,9 +10,10 @@ app.config['SECRET_KEY'] = 'njvaovnfohandvfliansvdjf161f1bg64s1bs345fv1s6'
 HOST = '127.0.0.1'
 PORT = 5000
 
+# to hold the picture names for now until I figure out databases
 pics = list()
-results = dict()  # global for helping and doddo
 
+# get all the picture names in the list
 for pic in os.listdir('./static/pics'):
     pics.append(pic) 
 
@@ -22,16 +23,11 @@ for pic in os.listdir('./static/pics'):
 def home():
     return render_template('home.html', title='pics', things=['this', 'is', 'a', 'rendered', 'list', 'hehe'], pics=pics)
 
-@app.route('/hehe')
-def hehe():
-    return '<h1>hehe</h1>'
-
-
 @app.route('/calc', methods=['GET', 'POST'])
 def calc():
-    global results
     results = None
     form = CalculusForm()
+    # if have recieved user input then display it on the page
     if form.is_submitted():
         poly = Polynomial(degree=form.degree.data, coefficients=list(map(int, form.coeffs.data.split())))
         results = [
