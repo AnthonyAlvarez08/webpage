@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, redirect
 from forms import CalculusForm
 from calc import Polynomial
+from math import sqrt
 import os
 
 app = Flask(__name__)
@@ -42,7 +43,8 @@ def calc():
 
 @app.route('/other')
 def other():
-    return render_template('other.html')
+    nums = list(filter(lambda x: int(sqrt(x)) == sqrt(x), range(1, 1_000_000)))
+    return render_template('other.html', nums=nums)
 
 
 if __name__ == '__main__':
