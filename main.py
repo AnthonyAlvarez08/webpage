@@ -40,5 +40,10 @@ def calc():
 
 
 
+@app.route('/other')
+def other():
+    return render_template('other.html')
+
+
 if __name__ == '__main__':
     app.run(host=HOST, port=PORT, debug=True)
