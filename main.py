@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for, redirect
 from forms import CalculusForm
 from calc import Polynomial
 from math import sqrt
+import asyncio
 import os
 
 app = Flask(__name__)
@@ -17,6 +18,12 @@ pics = list()
 # get all the picture names in the list
 for pic in os.listdir('./static/pics'):
     pics.append(pic) 
+
+
+# I have decided to learn asyncio
+async def oof():
+    print('hehe')
+    await asyncio.sleep(0.2)
 
 
 @app.route('/', methods=['GET', 'POST'])
