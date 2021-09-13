@@ -42,7 +42,7 @@ def calc():
 
 @app.route('/other')
 def other():
-    return render_template('other.html')
+    return render_template('other.html', wachk=[x ** 3 for x in range(40)])
 
 
 if __name__ == '__main__':
