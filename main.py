@@ -57,6 +57,10 @@ def other():
     return render_template('other.html', nums=nums)
 
 
+@app.route('/about-me')
+def about():
+    return render_template('about.html')
+
 
 if __name__ == '__main__':
     app.run(host=HOST, port=PORT, debug=True)

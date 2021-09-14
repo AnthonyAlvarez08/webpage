@@ -21,7 +21,15 @@
     </head>
 
     <body>
-        <nav><a href = "{{ url_for('home') }}">home</a><span>__</span><a href = "{{ url_for('calc') }}">calc</a><span>__</span><a href= "{{ url_for('other') }}">other</a></nav>
+        <nav>
+            <a href = "{{ url_for('home') }}">home</a>
+            <span>__</span>
+            <a href = "{{ url_for('calc') }}">calc</a>
+            <span>__</span>
+            <a href= "{{ url_for('other') }}">other</a>
+            <span>__</span>
+            <a href= "{{ url_for('about') }}">about me</a>
+        </nav>
         {% block content %}
         {% endblock %}
     </body>
