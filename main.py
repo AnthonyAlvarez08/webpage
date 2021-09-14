@@ -25,6 +25,9 @@ async def oof():
     print('hehe')
     await asyncio.sleep(0.2)
 
+def generate_nums():
+    return list(filter(lambda x: int(sqrt(x)) == sqrt(x), range(1, 1_000_000)))
+
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/home', methods=['GET', 'POST'])
@@ -50,7 +53,7 @@ def calc():
 
 @app.route('/other')
 def other():
-    nums = list(filter(lambda x: int(sqrt(x)) == sqrt(x), range(1, 1_000_000)))
+    nums = generate_nums()
     return render_template('other.html', nums=nums)
 
 
