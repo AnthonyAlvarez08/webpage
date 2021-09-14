@@ -54,5 +54,6 @@ def other():
     return render_template('other.html', nums=nums)
 
 
+
 if __name__ == '__main__':
     app.run(host=HOST, port=PORT, debug=True)
