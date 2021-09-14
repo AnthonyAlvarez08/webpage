@@ -53,7 +53,6 @@ class Polynomial:
         returns a function evaluation of a polynomial, and its anti-derivative and derivative
         '''
         coeffs = coefficients
-        d = degree
 
         # the polynomial itself
         def func(x : float) -> float:

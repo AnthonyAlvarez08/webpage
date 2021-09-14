@@ -6,7 +6,7 @@ import asyncio
 import os
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'njvaovnfohandvfliansvdjf161f1bg64s1bs345fv1s6'
+app.config['SECRET_KEY'] = 'e3dee6884570b0508514c1daac10d355ab27d92b66ad4df4da3b7e36b5c6ffed31522c4f88bbea305d3262c72c2de0d56f2b421c995202ef3ccb283858dda61b'
 
 # define the port and host just incase I change it in the future, for now localhost 5000
 HOST = '127.0.0.1'
