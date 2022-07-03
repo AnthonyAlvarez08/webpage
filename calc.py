@@ -7,7 +7,7 @@ class Polynomial:
 
     def area_under(self, a : float, b : float) -> float:
         '''
-        fundamental theorem of calculus or a definite integral
+        a definite integral
         '''
         return self.integral(b) - self.integral(a)
 

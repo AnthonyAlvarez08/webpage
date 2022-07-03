@@ -25,17 +25,17 @@ async def oof():
     print('hehe')
     await asyncio.sleep(0.2)
 
-def generate_nums():
+def generate_nums() -> list[int]:
     return list(filter(lambda x: int(sqrt(x)) == sqrt(x), range(1, 1_000_000)))
 
 
 @app.route('/', methods=['GET', 'POST'])
 @app.route('/home', methods=['GET', 'POST'])
-def home():
+def home() -> str:
     return render_template('home.html', title='pics', things=['this', 'is', 'a', 'rendered', 'list', 'hehe'], pics=pics)
 
 @app.route('/calc', methods=['GET', 'POST'])
-def calc():
+def calc() -> str:
     results = None
     form = CalculusForm()
     # if have recieved user input then display it on the page
@@ -52,13 +52,13 @@ def calc():
 
 
 @app.route('/other')
-def other():
+def other() -> str:
     nums = generate_nums()
     return render_template('other.html', nums=nums)
 
 
 @app.route('/about-me')
-def about():
+def about() -> str:
     return render_template('about.html')
 
 
